@@ -41,13 +41,29 @@ export default class Graph extends Vue {
         subtitle: {
           text: "",
         },
+        xAxis: {
+          categories: [
+            "1/1",
+            "1/2",
+            "1/3",
+            "1/4",
+            "1/5",
+            "1/6",
+            "1/7",
+            "1/8",
+            "1/9",
+            "1/10",
+            "1/11",
+            "1/12",
+          ],
+        },
         yAxis: {
           title: false,
           labels: {
             format: "{value} ",
           },
           opposite: false,
-          max: 900,
+          max: 2000,
         },
         credits: {
           enabled: false,
@@ -55,10 +71,24 @@ export default class Graph extends Vue {
         tooltip: {
           pointFormat: "{series.name}：{point.y:.1f} ℃",
         },
+        plotOptions: {
+          series: {
+            label: {
+              connectorAllowed: false,
+            },
+            pointStart: 1,
+          },
+        },
         series: [
           {
             // type: "column",
-            data: [100, 180, 183, 322, 178, 600, 411, 721, 889],
+            data: [500, 1510, 1012, 1441, 1223, 1610, 1734, 1443, 1788, 889],
+            pointPadding: 0.1,
+            groupPadding: 0,
+          },
+          {
+            // type: "column",
+            data: [270, 1664, 1830, 1922, 1678, 1860, 1933, 1622, 1441, 1430],
             pointPadding: 0.1,
             groupPadding: 0,
           },

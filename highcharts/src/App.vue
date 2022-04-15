@@ -1,50 +1,62 @@
 <template>
   <div id="app">
-    <div id="main">
-      <div><b>登録会員数</b></div>
-      <div>{{ title }}人</div>
-    </div>
-    <div id="sub">
-      <div class="flex-item subtitle">前の期間: {{ subtitle }}%</div>
-      <div v-if="subtitle > 100" class="flex-item subtitle" id="uparrow">➚</div>
-      <div v-else class="flex-item" id="downarrow">➘</div>
-      <div class="flex-item subtitle">前年比: {{ subYeartitle }}%</div>
-      <div v-if="subYeartitle > 100" class="flex-item subtitle" id="uparrow">
-        ➚
+    <v-card>
+      <div id="main">
+        <div><b>登録会員数</b></div>
+        <div>{{ title }}人</div>
       </div>
-      <div v-else class="flex-item" id="downarrow">➘</div>
-    </div>
-    <Graph></Graph>
-    <div id="main">
-      <div><b>PV数</b></div>
-      <div>{{ pageview }}</div>
-    </div>
-    <div id="sub">
-      <div class="flex-item subtitle">前の期間: {{ subpageview }}%</div>
-      <div v-if="subpageview > 100" class="flex-item subtitle" id="uparrow">
-        ➚
+      <div id="sub">
+        <div class="flex-item subtitle">前の期間: {{ subtitle }}%</div>
+        <div v-if="subtitle > 100" class="flex-item subtitle" id="uparrow">
+          ➚
+        </div>
+        <div v-else class="flex-item" id="downarrow">➘</div>
+        <div class="flex-item subtitle">前年比: {{ subYeartitle }}%</div>
+        <div v-if="subYeartitle > 100" class="flex-item subtitle" id="uparrow">
+          ➚
+        </div>
+        <div v-else class="flex-item" id="downarrow">➘</div>
       </div>
-      <div v-else class="flex-item" id="downarrow">➘</div>
-      <div class="flex-item subtitle">前年比: {{ subYearpageview }}%</div>
-      <div v-if="subYearpageview > 100" class="flex-item subtitle" id="uparrow">
-        ➚
+      <Graph></Graph>
+    </v-card>
+    <v-card>
+      <div id="main">
+        <div><b>PV数</b></div>
+        <div>{{ pageview }}</div>
       </div>
-      <div v-else class="flex-item" id="downarrow">➘</div>
-    </div>
-    <GraphBar></GraphBar>
+      <div id="sub">
+        <div class="flex-item subtitle">前の期間: {{ subpageview }}%</div>
+        <div v-if="subpageview > 100" class="flex-item subtitle" id="uparrow">
+          ➚
+        </div>
+        <div v-else class="flex-item" id="downarrow">➘</div>
+        <div class="flex-item subtitle">前年比: {{ subYearpageview }}%</div>
+        <div
+          v-if="subYearpageview > 100"
+          class="flex-item subtitle"
+          id="uparrow"
+        >
+          ➚
+        </div>
+        <div v-else class="flex-item" id="downarrow">➘</div>
+      </div>
+      <GraphBar></GraphBar>
+    </v-card>
     <!-- <div>
       <video-player :options="videoOptions" />
     </div> -->
-    <pre>{{ currentTime }}</pre>
-    <video
-      ref="sampleVid"
-      id="sampleVid"
-      controls
-      @timeupdate="currentTime_ = $event.target.currentTime"
-    >
-      <source src="./camping.mp4" type="video/mp4" />
-    </video>
-    <GraphVideo></GraphVideo>
+    <v-card>
+      <pre>{{ currentTime }}</pre>
+      <video
+        ref="sampleVid"
+        id="sampleVid"
+        controls
+        @timeupdate="currentTime_ = $event.target.currentTime"
+      >
+        <source src="./camping.mp4" type="video/mp4" />
+      </video>
+      <GraphVideo></GraphVideo>
+    </v-card>
   </div>
 </template>
 
