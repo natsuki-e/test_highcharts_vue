@@ -15,7 +15,7 @@ if (typeof Highcharts === "object") {
 }
 
 export type DataType = {
-  graph: any;
+  chartOptions: any;
 };
 
 @Component({
@@ -26,9 +26,11 @@ export type DataType = {
 export default class Graph extends Vue {
   data(): DataType {
     return {
-      graph: {
+      chartOptions: {
         chart: {
           type: "funnel",
+          width: 500,
+          height: 300,
         },
         dataLabels: {
           enabled: true,
@@ -40,7 +42,7 @@ export default class Graph extends Vue {
         neckHeight: "0%",
         width: "80%",
         tooltip: {
-          pointFormat: "{series.name}：{point.y:.1f} ℃",
+          pointFormat: "{series.name}: {point.percentage:.1f} % <br>{point.y}",
         },
         legend: {
           enabled: false,
@@ -49,14 +51,39 @@ export default class Graph extends Vue {
           {
             name: "Unique users",
             data: [
-              ["Website visits", 15654],
-              ["Downloads", 4064],
-              ["Requested price list", 1987],
-              ["Invoice sent", 976],
-              ["Finalized", 846],
+              ["申し込み者数", 4298],
+              ["参加者数", 2426],
+              ["アンケート数", 1026],
             ],
           },
         ],
+        responsive: {
+          rules: [
+            {
+              condition: {
+                maxWidth: 500,
+              },
+              chartOptions: {
+                plotOptions: {
+                  series: {
+                    dataLabels: {
+                      format:
+                        "<b>{point.name}</b><br> {point.percentage:.1f} %({point.y})",
+                      softConnector: true,
+                      borderRadius: 5,
+                      borderWidth: 1,
+                      borderColor: "#AAA",
+                    },
+                    center: ["50%", "50%"],
+                    width: "50%",
+                    neckHeight: "0",
+                    neckWidth: "0",
+                  },
+                },
+              },
+            },
+          ],
+        },
       },
     };
   }

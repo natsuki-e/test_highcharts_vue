@@ -57,6 +57,9 @@
       </video>
       <GraphVideo></GraphVideo>
     </v-card>
+    <v-card>
+      <Pyramid></Pyramid>
+    </v-card>
   </div>
 </template>
 
@@ -65,6 +68,7 @@ import { Component, Vue } from "vue-property-decorator";
 import Graph from "@/components/Graph.vue";
 import GraphBar from "@/components/GraphBar.vue";
 import GraphVideo from "@/components/GraphVideo.vue";
+import Pyramid from "@/components/Pyramid.vue";
 // import VideoPlayer from "@/components/VideoPlayer.vue";
 import "video.js/dist/video-js.css";
 
@@ -73,6 +77,7 @@ import "video.js/dist/video-js.css";
     Graph,
     GraphBar,
     GraphVideo,
+    Pyramid,
     // VideoPlayer,
   },
 })
