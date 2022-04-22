@@ -1,18 +1,26 @@
 <template>
   <div>
-    <highcharts :options="graphBar"></highcharts>
+    <highcharts :options="graphcombination"></highcharts>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { Chart } from "highcharts-vue";
+import Highcharts from "highcharts";
+import exportingInit from "highcharts/modules/exporting";
+import exportingCSV from "highcharts/modules/export-data";
+
+if (typeof Highcharts === "object") {
+  exportingInit(Highcharts);
+  exportingCSV(Highcharts);
+}
 
 export type DataType = {
   sum: number;
   beforesum: number;
   beforeYearsum: number;
-  graphBar: any;
+  graphcombination: any;
 };
 
 @Component({
@@ -26,17 +34,17 @@ export default class Graph extends Vue {
       sum: 8000,
       beforesum: 6800,
       beforeYearsum: 3200,
-      graphBar: {
+      graphcombination: {
         chart: {
-          type: "line",
           width: 500,
           height: 300,
+          // type: "ｌine",
         },
         legend: {
           enabled: "false",
         },
         title: {
-          text: "",
+          text: "負荷テストのためのセミナーに関するキャンペーン",
         },
         subtitle: {
           text: "",
@@ -44,18 +52,17 @@ export default class Graph extends Vue {
         xAxis: {
           categories: [
             "1/1",
-            "1/2",
-            "1/3",
-            "1/4",
-            "1/5",
-            "1/6",
             "1/7",
-            "1/8",
-            "1/9",
-            "1/10",
-            "1/11",
-            "1/12",
+            "1/14",
+            "1/21",
+            "1/28",
+            "2/5",
+            "2/12",
+            "2/19",
+            "2/26",
           ],
+          crosshair: true,
+          categoryPercentage: 0.2,
         },
         yAxis: {
           title: false,
@@ -63,7 +70,7 @@ export default class Graph extends Vue {
             format: "{value} ",
           },
           opposite: false,
-          max: 2000,
+          max: 1000,
         },
         credits: {
           enabled: false,
@@ -71,24 +78,18 @@ export default class Graph extends Vue {
         tooltip: {
           pointFormat: "{series.name}：{point.y:.1f} 人",
         },
-        plotOptions: {
-          series: {
-            label: {
-              connectorAllowed: false,
-            },
-            pointStart: 1,
-          },
-        },
         series: [
           {
-            // type: "column",
-            data: [500, 1510, 1012, 1441, 1223, 1610, 1734, 1443, 1788, 889],
-            pointPadding: 0.1,
+            type: "column",
+            name: "申し込み者数",
+            data: [875, 731, 888, 733, 866, 703, 902, 658],
+            pointPadding: 0.3,
             groupPadding: 0,
           },
           {
-            // type: "column",
-            data: [270, 1664, 1830, 1922, 1678, 1860, 1933, 1622, 1441, 1430],
+            type: "spline",
+            name: "申し込み者数累計",
+            data: [244, 877, 888, 733, 766, 722, 558, 501],
             pointPadding: 0.1,
             groupPadding: 0,
           },

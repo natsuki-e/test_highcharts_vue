@@ -60,6 +60,12 @@
     <v-card>
       <Pyramid></Pyramid>
     </v-card>
+    <v-card>
+      <TripleBar></TripleBar>
+    </v-card>
+    <v-card>
+      <GraphCombination></GraphCombination>
+    </v-card>
   </div>
 </template>
 
@@ -69,6 +75,8 @@ import Graph from "@/components/Graph.vue";
 import GraphBar from "@/components/GraphBar.vue";
 import GraphVideo from "@/components/GraphVideo.vue";
 import Pyramid from "@/components/Pyramid.vue";
+import TripleBar from "@/components/TripleBar.vue";
+import GraphCombination from "@/components/GraphCombination.vue";
 // import VideoPlayer from "@/components/VideoPlayer.vue";
 import "video.js/dist/video-js.css";
 
@@ -78,6 +86,8 @@ import "video.js/dist/video-js.css";
     GraphBar,
     GraphVideo,
     Pyramid,
+    TripleBar,
+    GraphCombination,
     // VideoPlayer,
   },
 })
