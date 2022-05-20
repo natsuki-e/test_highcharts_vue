@@ -80,7 +80,7 @@ export default class Graph extends Vue {
         series: [
           {
             type: "column",
-            data: [100, 125, 255, 588, 788, 1000, 1300, 1420, 2000],
+            data: [0, 0, 0, 0, 0, 0, 0, 0, 0],
             pointPadding: 0.1,
             groupPadding: 0,
           },

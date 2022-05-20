@@ -42,7 +42,8 @@ export default class Graph extends Vue {
         neckHeight: "0%",
         width: "80%",
         tooltip: {
-          pointFormat: "{series.name}: {point.percentage:.1f} % <br>{point.y}",
+          pointFormat:
+            "{series.name}: {point.percentage:.1f} % <br>{point.y:,.0f}",
         },
         legend: {
           enabled: false,
@@ -51,9 +52,9 @@ export default class Graph extends Vue {
           {
             name: "Unique users",
             data: [
-              ["申し込み者数", 4298],
-              ["参加者数", 2426],
-              ["アンケート数", 1026],
+              ["申し込み者数", 42],
+              ["参加者数", 0],
+              ["アンケート数", 0],
             ],
           },
         ],

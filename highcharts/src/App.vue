@@ -18,6 +18,7 @@
         <div v-else class="flex-item" id="downarrow">➘</div>
       </div>
       <Graph></Graph>
+      <Graph2></Graph2>
     </v-card>
     <v-card>
       <div id="main">
@@ -72,6 +73,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import Graph from "@/components/Graph.vue";
+import Graph2 from "@/components/Graph2.vue";
 import GraphBar from "@/components/GraphBar.vue";
 import GraphVideo from "@/components/GraphVideo.vue";
 import Pyramid from "@/components/Pyramid.vue";
@@ -83,6 +85,7 @@ import "video.js/dist/video-js.css";
 @Component({
   components: {
     Graph,
+    Graph2,
     GraphBar,
     GraphVideo,
     Pyramid,
